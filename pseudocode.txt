@@ -1,7 +1,7 @@
 User inputs scisscors, paper or rock
     prompt the user for an inputs   
-    process the input into lower-case than see if it is a valid selection
-    if yes, proceed. if no, return error message.
+    process the input into lower-case than see if it is a valid selection.
+    if yes, proceed. if no, return error message and prompt for valid input.
     store the input inside a variable 
 Computer randomly generates a selection from the three choices
     function that randomly choose between 3 possible choices.
