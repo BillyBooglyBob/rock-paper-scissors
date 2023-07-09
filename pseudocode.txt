@@ -1,0 +1,21 @@
+User inputs scisscors, paper or rock
+    prompt the user for an inputs   
+    process the input into lower-case than see if it is a valid selection
+    if yes, proceed. if no, return error message.
+    store the input inside a variable 
+Computer randomly generates a selection from the three choices
+    function that randomly choose between 3 possible choices.
+    maybe use numbers then assign number to the choices.
+    store the choice inside a variable
+Compare user vs computer, decide a winner and return who won
+    function compares user and computer input
+    winner is found
+    winner is returned
+Run for 5 rounds, less if one side won 3 times. 
+    function that runs the game for 5 rounds, use while/for loop.
+    return winning or losing message for the user based on the outcome. 
+    based on the winner tally up the scores and compare the scores.
+    If one side has 3 points, declare that as the winner.
+    Else, run for 5 games then one side will have 3 points. 
+    Print out the winner. 
+
