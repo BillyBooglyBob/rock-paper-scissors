@@ -1,0 +1,43 @@
+* {
+    font-size: 40px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    justify-content: space-around;
+
+}
+
+/* Title */
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+/* Buttons */
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    width: 200px;
+    height: 140px;
+}
+
+/* Scoreboard */
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+
+}
+
+.user,
+.computer {
+    display: flex;
+    gap: 20px;
+}
