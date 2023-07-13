@@ -1,66 +1,53 @@
 const options = ["rock", "paper", "scissors"];
+let userScore = 0;
+let computerScore = 0;
+const user = document.querySelector('.user-score');
+const computer = document.querySelector('.computer-score');
 
 function getComputerChoice() {
     let computerChoice = options[Math.floor(Math.random() * options.length)];
     return computerChoice;
 }
 
-function getUserChoice() {
-    let userChoice = prompt("What is your move? ");
-    userChoice = userChoice.toLowerCase();
-    if (userChoice === "rock" || userChoice === "paper" || userChoice === "scissors") {
-        return userChoice;
-    } else {
-        getUserChoice();
-    }
-}     
-
-function playRound(userChoice, computerChoice) {
+function playRound() {
+    let userChoice = this.className;
+    let computerChoice = getComputerChoice();
     if (userChoice === computerChoice) {
-        return "draw";
-    } else if (userChoice === "rock" && computerChoice === "scissors") {
-        return "won";
-    } else if (userChoice === "paper" && computerChoice === "rock") {
-        return "won";
-    } else if (userChoice === "scissors" && computerChoice === "paper") {
-        return "won";
+        return;
+    } else if (userChoice === "rock" && computerChoice === "scissors"
+    || userChoice === "paper" && computerChoice === "rock"
+    || userChoice === "scissors" && computerChoice === "paper") {
+        userScore++;
     } else {
-        return "lost";
+        computerScore++;
+    }
+
+    updateScore();
+    checkScore();
+
+}
+
+function updateScore() {
+    user.textContent = userScore.toString();
+    computer.textContent = computerScore.toString();
+}
+
+function checkScore() {
+    if (userScore === 5) {
+        alert('YOU WON!!!');
+        resetScore();
+    } else if (computerScore === 5) {
+        alert('you lost.')
+        resetScore();
     }
 }
 
-function game() {
-    let userScore = 0;
-    let computerScore = 0;
-    let wonMessage = "You won";
-    let lostMessage = "You lost";
-    let computerChoice; 
-    let userChoice;
-    let outcome;
-
-    for (let i = 0; i < 5; i++) {
-        computerChoice = getComputerChoice(); 
-        userChoice = getUserChoice();
-        outcome = playRound(userChoice, computerChoice)
-        switch (outcome) {
-            case "won":
-                userScore++;
-                break;
-
-            case "lost":
-                computerScore++;
-                break;
-
-            default:
-                break;
-        }
-    }
-
-    if (userScore > computerScore) {
-        console.log("You won!!!");
-    } else if (userScore < computerScore) {
-        console.log("You lost. Try again.");
-    } else {
-        console.log("It's a draw.");
-    }
+function resetScore() {
+    userScore = 0;
+    computerScore = 0;
+    user.textContent = userScore.toString();
+    computer.textContent = computerScore.toString();
 }
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => button.addEventListener('click', playRound))
